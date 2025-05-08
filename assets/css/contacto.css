@@ -1,0 +1,56 @@
+#contacto {
+  padding: 2rem 0;
+  color: #f4f4f4;
+}
+
+.contacto-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.info-contacto p {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+}
+
+#contacto i {
+  color: #733486ce;
+  font-size: 1.1rem;
+}
+
+#contacto a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#contacto a:hover {
+  color: #733486ce;
+}
+
+.btn-contacto-wrapper {
+  align-self: flex-start;
+}
+
+.btn-contacto {
+  margin: 4rem;
+  background-color: #733486ce;
+  color: #111;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-contacto:hover {
+  background-color: #733486ce;
+  transform: scale(1.05);
+}

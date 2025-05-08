@@ -1,0 +1,46 @@
+
+/*Habilidades css*/
+.iconos-habilidades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .iconos-habilidades i {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #ccc;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .iconos-habilidades i:hover {
+    transform: scale(1.2);
+    color: #733486ce;
+  }
+  
+  .iconos-habilidades i[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #444;
+    color: #fff;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0.9;
+    z-index: 10;
+  }

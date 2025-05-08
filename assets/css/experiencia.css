@@ -1,0 +1,81 @@
+/* css Experiencia */
+.experiencia-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .experiencia-item {
+    flex: 1 1 45%;
+    background-color: #2e2e2e;
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .experiencia-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(134, 24, 107, 0.2);
+  }
+  
+  .experiencia-item .año {
+    position: absolute;
+    left: 0;
+    top: 1.5rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #733486ce;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+  }
+  
+  .experiencia-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .experiencia-item h4 {
+    font-size: 1rem;
+    color: #ccc;
+    margin-left: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .experiencia-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ddd;
+    margin-left: 1.5rem;
+  }
+  
+  /* Animación de entrada */
+  .animada {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: subirSuave 0.8s ease forwards;
+  }
+  
+  .animada:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  @keyframes subirSuave {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive para móviles */
+  @media screen and (max-width: 768px) {
+    .experiencia-item {
+      flex: 1 1 100%;
+    }
+  }
