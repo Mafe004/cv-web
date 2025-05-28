@@ -1,0 +1,478 @@
+/* —————————————————— Reset & Variables —————————————————— */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-primary: #ff6f3c;
+  --clr-dark: #1f3c34;
+  --clr-light: #fafafa;
+  --clr-grey: #777;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --transition: 0.3s;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--clr-dark);
+  background: var(--clr-light);
+  line-height: 1.5;
+}
+
+/* —————————————————— Containers —————————————————— */
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+/* —————————————————— Header —————————————————— */
+.site-header {
+  background: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  text-decoration: none;
+}
+
+.main-nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  font-size: var(--fs-md);
+  color: var(--clr-dark);
+  transition: color var(--transition);
+}
+
+.main-nav a:hover {
+  color: var(--clr-primary);
+}
+
+.header-actions i {
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  color: var(--clr-grey);
+  cursor: pointer;
+}
+
+/* —————————————————— Hero —————————————————— */
+.hero {
+  background: #fff;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-text small {
+  text-transform: uppercase;
+  font-size: var(--fs-sm);
+  color: var(--clr-primary);
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--clr-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: background var(--transition);
+}
+
+.btn-primary:hover {
+  background: #e65b2b;
+}
+
+.hero-image {
+  position: relative;
+  text-align: right;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+}
+
+.hero-counter {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  font-size: 10rem;
+  color: rgba(31, 60, 52, 0.05);
+  font-weight: 800;
+  pointer-events: none;
+}
+
+/* —————————————————— Categories —————————————————— */
+.categories {
+  padding: 3rem 0 1rem;
+}
+
+.categories h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--clr-dark);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.cat-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition);
+}
+
+.cat-card:hover {
+  transform: translateY(-5px);
+}
+
+.cat-card img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.cat-card p {
+  font-size: var(--fs-md);
+  color: var(--clr-dark);
+}
+
+/* —————————————————— Hot Products —————————————————— */
+.hot-products {
+  padding: 2rem 0 4rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 1.75rem;
+  color: var(--clr-dark);
+}
+
+.tabs button {
+  background: transparent;
+  border: none;
+  font-size: var(--fs-sm);
+  color: var(--clr-grey);
+  margin-left: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: color var(--transition), border-bottom var(--transition);
+}
+
+.tabs .active {
+  color: var(--clr-primary);
+  border-bottom: 2px solid var(--clr-primary);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card .badge.sale {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--clr-primary);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: var(--fs-sm);
+  border-radius: 0.5rem;
+}
+
+.product-card .countdown {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.product-card img {
+  display: block;
+  max-height: 120px;       /* antes 200px o sin límite */
+  width: auto;
+  margin: 0 auto 10px;
+}
+
+.product-card h3 {
+  font-size: var(--fs-md);
+  margin: 0.75rem 1rem 0.25rem;
+  color: var(--clr-dark);
+}
+
+.product-card .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem 1rem;
+}
+
+.product-card .price .current {
+  font-weight: 700;
+  color: var(--clr-primary);
+}
+
+.product-card .price .old {
+  text-decoration: line-through;
+  color: var(--clr-grey);
+}
+
+/* —————————————————— Footer —————————————————— */
+.site-footer {
+  background: var(--clr-dark);
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.modal .price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.modal .price .old {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.modal .btn-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.modal .btn-link:hover {
+  background: #555;
+}
+
+/* Asegúrate de que el contenedor esté en posición relativa */
+.products-carousel {
+  position: relative;
+  padding-bottom: 40px;
+  /* espacio extra para las flechas y paginación */
+}
+
+/* Mueve las flechas al fondo */
+.products-carousel .swiper-button-next,
+.products-carousel .swiper-button-prev {
+  top: auto !important;
+  /* anula el top por defecto */
+  bottom: 10px !important;
+  /* 10px arriba del borde inferior */
+  width: 32px;
+  height: 32px;
+  margin: 0;
+}
+
+/* Opcional: ajusta la posición horizontal */
+.products-carousel .swiper-button-prev {
+  left: 10px;
+}
+
+.products-carousel .swiper-button-next {
+  right: 10px;
+}
+
+/* Si quieres bajar también los bullets (paginación) */
+.products-carousel .swiper-pagination {
+  bottom: 5px !important;
+  top: auto !important;
+}
+
+
+
+
+/* —— Modal —— */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.modal .price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.modal .price .old {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.modal .btn-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.modal .btn-link:hover {
+  background: #555;
+}
+
+/* —— Carrusel —— */
+.products-carousel {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.products-carousel .swiper-button-next,
+.products-carousel .swiper-button-prev {
+  top: auto !important;
+  bottom: 10px !important;
+  width: 32px;
+  height: 32px;
+}
+
+.products-carousel .swiper-button-prev {
+  left: 10px;
+}
+
+.products-carousel .swiper-button-next {
+  right: 10px;
+}
+
+.products-carousel .swiper-pagination {
+  bottom: 5px !important;
+  top: auto !important;
+}
