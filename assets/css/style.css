@@ -6,16 +6,30 @@
 @import url("habilidades.css");
 @import url("idiomas.css");
 @import url("proyectos.css");
+:root {
+  --bg-page:     #1f1f1f;
+  --bg-sidebar:  #733486;
+  --bg-nav:      #2c2c2c;
+  --text-light:  #f4f4f4;
+  --accent:      #ff4500;
+  --shadow:      rgba(0,0,0,0.3);
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #1f1f1f;
-  color: #f4f4f4;
+  background: var(--bg-page);
+  color:      var(--text-light);
 }
 
 .container {
@@ -26,7 +40,7 @@ body {
 
 .sidebar {
   width: 35%;
-  background-color: #733486ce;
+  background: var(--bg-sidebar);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,17 +48,19 @@ body {
   text-align: center;
   padding: 2rem;
 }
+
 .sidebar img {
   width: 200px;
   height: 200px;
-  border-radius: 100px;
+  border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
   animation: floatStar 3s ease-in-out infinite;
 }
+
 @keyframes floatStar {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
 
@@ -52,37 +68,130 @@ body {
   font-size: 2.2rem;
   margin-bottom: 0.2rem;
 }
-.sidebar h1 span {
-  font-weight: bold;
-  display: block;
-}
+
 .sidebar p {
   font-size: 1rem;
   color: #ccc;
 }
+
 .content {
   width: 65%;
   overflow-y: auto;
-  padding: 2rem;
-  background-color: #1f1f1f;
+  padding: 3rem 2rem;
+  background: var(--bg-page);
 }
-
-
-
-/**/
 
 section {
   margin-bottom: 3rem;
 }
+
 section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #733486ce;
+  color: var(--bg-sidebar);
 }
+
 section p {
   font-size: 1rem;
   line-height: 1.6;
 }
+
+/* -----------------------------
+   NAV PRINCIPAL (dark theme)
+----------------------------- */
+.site-navigation {
+  position: sticky;
+  top:      0;
+  width:    100%;
+  display:  flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:   0.75rem 1.5rem;
+  background: var(--bg-nav);
+  box-shadow: 0 2px 8px var(--shadow);
+  z-index:    1000;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display:     none;
+  background:  none;
+  border:      none;
+  font-size:   1.75rem;
+  color:       var(--text-light);
+  cursor:      pointer;
+}
+
+/* Lista flex */
+.site-nav {
+  list-style: none;
+  display:    flex;
+  gap:        2rem;
+}
+
+/* Enlaces */
+.site-nav a {
+  position:      relative;
+  color:         var(--text-light);
+  text-decoration:none;
+  font-weight:   600;
+  padding:       0.5rem;
+  transition:    color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus,
+.site-nav a.active {
+  color: var(--accent);
+  outline: none;
+}
+
+.site-nav a::after {
+  content:         "";
+  position:        absolute;
+  left:            0;
+  bottom:         -3px;
+  width:           100%;
+  height:          2px;
+  background:      var(--accent);
+  transform:       scaleX(0);
+  transform-origin:left;
+  transition:      transform 0.25s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  transform: scaleX(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .site-nav {
+    position:       absolute;
+    top:            100%;
+    left:           0;
+    right:          0;
+    background:     var(--bg-nav);
+    flex-direction: column;
+    max-height:     0;
+    overflow:       hidden;
+    transition:     max-height 0.4s ease;
+  }
+  .site-nav.open {
+    max-height: 500px;
+  }
+  .site-nav li + li {
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .site-nav a {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Media query para móvil general */
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -94,9 +203,3 @@ section p {
     padding: 1rem;
   }
 }
-
-
-
-
-
-
